@@ -1,0 +1,43 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AtrumSoft.UWP.Controls">
+
+    <Style TargetType="local:CircularProgressBar" >
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:CircularProgressBar">
+                    <Border
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <Viewbox>
+                            <Grid Width="100" Height="100" Margin="{TemplateBinding Padding}" Background="Transparent">
+                                <Path x:Name="MainPath" Fill="Transparent" Stroke="{TemplateBinding Color}" StrokeThickness="10" 
+                                          StrokeDashCap="Flat">
+                                    <Path.Data>
+                                        <PathGeometry>
+                                            <PathGeometry.Figures>
+                                                <PathFigureCollection>
+                                                    <PathFigure StartPoint="50,0">
+                                                        <PathFigure.Segments>
+                                                            <PathSegmentCollection>
+                                                                <ArcSegment x:Name="PartArc" Size="50,50" IsLargeArc="False" SweepDirection="Clockwise" Point="50,0" />
+                                                            </PathSegmentCollection>
+                                                        </PathFigure.Segments>
+                                                    </PathFigure>
+                                                </PathFigureCollection>
+                                            </PathGeometry.Figures>
+                                        </PathGeometry>
+                                    </Path.Data>
+                                </Path>
+                                <TextBlock x:Name="PartTextBlock" Foreground="{TemplateBinding Foreground}" FontSize="24" 
+                                           VerticalAlignment="Center" HorizontalAlignment="Center" />
+                            </Grid>
+                        </Viewbox>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
